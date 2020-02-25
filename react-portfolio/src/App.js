@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import Container from 'react-bootstrap/Container';
+import { Container, Navbar, Nav } from 'react-bootstrap';
 import './App.css';
 
 class App extends React.Component {
@@ -30,12 +30,32 @@ class App extends React.Component {
 
 	render() {
 		return (
-      <Router>
-        <Container fluid={true}>
-
-        </Container>
-      </Router>
-    )
+			<Router>
+				{/* p-0 = Padding: 0 */}
+				<Container className='p-0' fluid={true}>
+					<Navbar className='border-bottom' bg='transparent' expand='lg'>
+						<Navbar.Brand>Stephanie Butenhof</Navbar.Brand>
+						{/* border-0 gets rid of border around the hamburger menu */}
+						<Navbar.Toggle className='border-0' aria-controls='navbar-toggle' />
+						<Navbar.Collapse id='navbar-toggle'>
+							{/* 'ml-auto' = margin-left: auto; */}
+							<Nav className='ml-auto'>
+								{/* React Router used here for links */}
+								<Link className='nav-link' to='/'>
+									Home
+								</Link>
+								<Link className='nav-link' to='/about'>
+									About
+								</Link>
+								<Link className='nav-link' to='/contact'>
+									Contact
+								</Link>
+							</Nav>
+						</Navbar.Collapse>
+					</Navbar>
+				</Container>
+			</Router>
+		);
 	}
 }
 
